@@ -15,11 +15,11 @@ class Post(models.Model):
     published_date = models.DateTimeField(
             blank=True, null=True)
     # PD will be displayed only in details
-    picture = models.ImageField(upload_to='staticfiels/')
+    picture = models.ImageField(upload_to='staticfiels/', blank=True, null=True)
     # picture be displayed
     help_picture_text = "Please use PNG format, and file-size not more 2mb."
     # h_p_t will be displayed only in admin panel
-    contract = models.FileField(upload_to='staticfiels/')
+    contract = models.FileField(upload_to='staticfiels/', blank=True, null=True)
     help_contract_text = "Please use PDF format, and file-size not more 2mb."
     # h_c_t will be displayed only in admin panel
     # rent block ----------------------------------------------------
