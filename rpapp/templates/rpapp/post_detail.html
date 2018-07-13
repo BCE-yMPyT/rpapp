@@ -1,0 +1,14 @@
+{% extends 'rpapp/base.html' %}
+
+{% block content %}
+    <div class="post">
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+        </br>
+        {% if post.published_date %}
+            <p><em>Опубликовано: {{ post.published_date }}</em></p>
+        {% endif %}
+        <!-- <p><img src="{{ post.picture.url }}" alt="image of this object"></p> -->
+
+    </div>
+{% endblock %}
