@@ -1,0 +1,20 @@
+{% extends 'rpapp/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        {% if post.rental_condition == 'free' %}
+            <div class="post">
+
+                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+
+                {% if post.picture %}
+                    <img src="{{ MEDIA_URL }}{{post.picture}}" alt="_">
+                {% endif %}
+
+                </br>
+                <h4>{{ post.rental_condition }}</h4>
+                <p><em>Опубликовано: {{ post.published_date }}</em></p>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

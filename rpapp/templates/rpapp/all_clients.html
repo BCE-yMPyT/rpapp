@@ -1,0 +1,15 @@
+{% extends 'rpapp/base.html' %}
+
+{% block content %}
+    {% for arendator in arendators %}
+
+        <div class="post">
+            {% if arendator.photo %}
+                <img src="{{ MEDIA_URL }}{{arendator.photo}}" alt="_">
+            {% endif %}
+
+            <h1>{{ arendator.name }}</h1>
+
+        </div>
+    {% endfor %}
+{% endblock %}

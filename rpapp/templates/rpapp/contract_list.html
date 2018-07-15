@@ -1,0 +1,17 @@
+{% extends 'rpapp/base.html' %}
+
+{% block content %}
+    {% for contract in contracts %}
+        <div class="post">
+            
+            <h1><a href="{% url 'contract_detail' pk=contract.pk %}">{{ contract.rent_obj }}</a></h1>
+
+            {% if contract.arendator %}
+                <img src="{{MEDIA_URL}}{{contract.arendator.photo}}">
+            {% endif %}
+
+            <h4>{{ contract.rental_condition }}</h4>
+
+        </div>
+    {% endfor %}
+{% endblock %}>
