@@ -33,3 +33,7 @@ python(3) manage.py runserver
 * At the ALL CLIENTS, you can find all of your created clients;
 * At the Free objects, you can find all of your real property which free now;
 * At the Leased objects, you can find all of your real property which leased now;
+* +OBJECT icon calling form for adding the real property object;
+* +CONTRACT icon calling form for adding the contract object;
+* +CLIENT icon calling form for adding the client object;
+* Last, on the left from +CLIENT, icon calling form for posting post with real property object, which will be visible for visitors;
