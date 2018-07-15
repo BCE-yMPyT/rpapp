@@ -10,6 +10,13 @@
             <img src="{{MEDIA_URL}}{{contract.arendator.photo}}">
         {% endif %}
         </br>
+        {% if contract.arendator %}
+            <strong>Данные арендатора:</strong>
+            <p>ИМЯ: <em>{{ contract.arendator.name }}</em></p>
+            <p>ТЕЛЕФОН: <em>{{ contract.arendator.phone }}</em></p>
+            <p>EMAIL: <em>{{ contract.arendator.email }}</em></p>
+        {% endif %}
+        </br>
             <span>
                 <strong>Состояние недвижимости по контракту:</strong>
                 <p><strong>{{ contract.rental_condition }}</strong></p>
