@@ -24,8 +24,8 @@ python(3) manage.py createsuperuser
 python(3) manage.py runserver
 ```
 - Go to: http://127.0.0.1:8000/;
-- Log in (preferably :)) on the ADMIN PANEL tab;
-- Enjoy (it seems :)).
+- Log in (preferably:)) on the ADMIN PANEL tab;
+- Enjoy (seems:)).
 ***
 * At the ADMIN PANEL, you can find all of you need for creating all of objects;
 * At the ALL POSTS, you can find all of your created posts;
