@@ -11,10 +11,11 @@ class PostForm(forms.ModelForm):
 class ArendatorForm(forms.ModelForm):
     class Meta:
         model = Arendator
-        fields = ('name', 'photo',)
+        fields = ('name', 'phone', 'email', 'photo',)
 
 class ContractForm(forms.ModelForm):
     class Meta:
         model = Contract
-        fields = ('rent_time_day', 'price_dollar', 'payment_by_contract_dollar', 'arendator', 'rent_obj',
-                  'contract_file', 'rental_condition',)
+        fields = ('rent_time_day', 'created_date', 'rent_finish_date',  'price_dollar',
+                  'payment_by_contract_dollar','arendator', 'rent_obj','contract_file',
+                  'rental_condition',)

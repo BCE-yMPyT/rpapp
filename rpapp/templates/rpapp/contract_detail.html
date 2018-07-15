@@ -10,15 +10,66 @@
             <img src="{{MEDIA_URL}}{{contract.arendator.photo}}">
         {% endif %}
         </br>
-        <span><strong>Состояние по контракту:</strong><p><strong>{{ contract.rental_condition }}</strong></p></span>
+            <span>
+                <strong>Состояние недвижимости по контракту:</strong>
+                <p><strong>{{ contract.rental_condition }}</strong></p>
+            </span>
         </br>
-        <span><strong>Оплачено по контракту:</strong><p>{{contract.payment_by_contract_dollar}}</p></span>
+            <span>
+                <strong>Цена по контракту:</strong>
+                <p>{{contract.price_dollar}}</p>
+            </span>
         </br>
-        <span><strong>Цена по контракту:</strong><p>{{contract.price_dollar}}</p></span>
+            <span>
+                <strong>Оплачено по контракту:</strong>
+                <p>{{contract.payment_by_contract_dollar}}</p>
+            </span>
         </br>
-        <span><strong>Дней по контракту:</strong><p>{{contract.rent_time_day}}</p></span>
+            <span>
+                <strong>Задолженость/переплата по контракту:</strong>
+                {% if contract.price_dollar > contract.payment_by_contract_dollar %}
+                    <div>
+                        <strong>НЕДОПЛАЧЕНО:</strong>
+                        <p>{{ contract.price_dollar|sub:contract.payment_by_contract_dollar }}</p>
+                    </div>
+                {% elif contract.price_dollar < contract.payment_by_contract_dollar %}
+                    <div>
+                        <strong>ПЕРЕПЛАЧЕНО:</strong>
+                        <p>{{ contract.price_dollar|sub:contract.payment_by_contract_dollar }}</p>
+                    </div>
+                {% elif contract.price_dollar == contract.payment_by_contract_dollar %}
+                    <p>{{ contract.price_dollar|sub:contract.payment_by_contract_dollar }}</p>
+                {% endif %}
+            </span>
         </br>
-
+            <span>
+                <strong>Дней по контракту:</strong>
+                <p>{{contract.rent_time_day}}</p>
+            </span>
+        </br>
+            <span>
+                <strong>Заключен контракт:</strong>
+                <p>{{contract.created_date}}</p>
+            </span>
+        </br>
+            <span>
+                <strong>Истекает контракт:</strong>
+                <p>{{contract.rent_finish_date}}</p>
+            </span>
+        </br>
+           <span>
+                <strong>
+                    До истечения контракта:</br>
+                    {{ contract.rent_finish_date|timeuntil }}
+                </strong>
+           </span>
+        </br></br>
+            <span>
+                <strong>Файл контракта :</strong>
+                <!-- added contract.pdf file -->
+                <a href="{{MEDIA_URL}}{{contract.contract_file}}">download</a>
+            </span>
+        </br>
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'contract_edit' pk=contract.pk %}"><span class="glyphicon glyphicon-pencil" style="color:blue"></span></a>
             <a class="btn btn-default" href="{% url 'contract_remove' pk=contract.pk %}"><span class="glyphicon glyphicon-remove" style="color:blue"></span></a>

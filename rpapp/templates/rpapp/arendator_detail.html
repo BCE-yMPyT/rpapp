@@ -7,12 +7,18 @@
 
         {% if arendator.photo %}
             <img src="{{MEDIA_URL}}{{arendator.photo}}">
+            </br>
         {% endif %}
-        </br>
-        <span><strong>Телефон:</strong><p><strong>88005550000</strong></p></span>
-        </br>
-        <span><strong>Email:</strong><p>88005550000</p></span>
-        </br>
+
+        {% if arendator.phone %}
+            <span><em>Телефон:</em><p><strong>{{ arendator.phone }}</strong></p></span>
+            </br>
+        {% endif %}
+
+        {% if arendator.email %}
+            <span><em>Email:</em><p><strong>{{ arendator.email }}</strong></p></span>
+            </br>
+        {% endif %}
 
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'arendator_edit' pk=arendator.pk %}"><span class="glyphicon glyphicon-pencil" style="color:blue"></span></a>

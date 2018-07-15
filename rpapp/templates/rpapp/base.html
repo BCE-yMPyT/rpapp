@@ -21,9 +21,7 @@
         {% endif %}
 
         <h3><a href="/">REAL PROPERTY APPLICATION</a></h3>
-        {% if user.is_authenticated %}
-            <a href="/admin" class="btn btn-warning btn-lg">ADMIN PANEL</a>
-        {% endif %}
+        <a href="/admin" class="btn btn-warning btn-lg">ADMIN PANEL</a>
         <a href="/" class="btn btn-primary btn-lg">ALL POSTS</a>
         {% if user.is_authenticated %}
             <a href="/allcontracts" class="btn btn-primary btn-lg">ALL CONTRACTS</a>

@@ -10,7 +10,23 @@
                 <img src="{{MEDIA_URL}}{{contract.arendator.photo}}">
             {% endif %}
 
-            <h4>{{ contract.rental_condition }}</h4>
+            </br></br>
+            <span>
+                <strong>Состояние недвижимости по контракту:</strong>
+                <p><strong>{{ contract.rental_condition }}</strong></p>
+            </span>
+
+            <span>
+                <strong>Истекает контракт:</strong>
+                <em>{{contract.rent_finish_date}}</em>
+            </span>
+
+            </br></br>
+            <span>
+                <strong>
+                    До истечения контракта:</br>
+                    {{ contract.rent_finish_date|timeuntil }}</strong>
+            </span>
 
         </div>
     {% endfor %}

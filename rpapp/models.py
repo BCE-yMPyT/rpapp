@@ -41,6 +41,8 @@ class Post(models.Model):
 
 class Arendator(models.Model):
     name = models.CharField(max_length=200)
+    phone = models.CharField(max_length=200, default='unknown')
+    email = models.CharField(max_length=200, default='unknown')
     photo = models.ImageField(upload_to="images/", blank=True, null=True)
 
     def __str__(self):
@@ -48,6 +50,10 @@ class Arendator(models.Model):
 
 class Contract(models.Model):
     rent_time_day = models.IntegerField(default=0)
+
+    created_date = models.DateTimeField(default=timezone.now)
+
+    rent_finish_date = models.DateTimeField(blank=True, null=True)
 
     price_dollar = models.IntegerField(default=0)
 
