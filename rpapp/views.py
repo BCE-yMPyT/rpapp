@@ -45,6 +45,7 @@ def contract_new(request):
         if form.is_valid():
             contract = form.save(commit=False)
             contract.author = request.user
+            contract.contract_file = request.POST["contract_file"]
             contract.save()
             return redirect('contract_detail', pk=contract.pk)
     else:
