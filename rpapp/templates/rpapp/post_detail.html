@@ -10,12 +10,15 @@
             <img src="{{MEDIA_URL}}{{post.picture}}">
         {% endif %}
 
-        <p>{{ post.text|linebreaksbr }}</p>
-        <h4>{{ post.rental_condition }}</h4>
+        <span><strong>Описание</strong><p>{{ post.text|linebreaksbr }}</p></span>
+        </br>
+        <p><strong>Сдаётся/свободно</strong><h4>{{ post.rental_condition }}</h4></p>
         </br>
 
         {% if post.published_date %}
+            <span><strong>Опубликовано:</strong>
             <p><em>{{ post.published_date }}</em></p>
+            </span>
             </br>
         {% else %}
             <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>

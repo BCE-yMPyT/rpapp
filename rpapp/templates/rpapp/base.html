@@ -14,14 +14,21 @@
 
     <div class="page-header">
         {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus" style="color:blue"></span></a>
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus" style="color:blue"><em>OBJECT</em></span></a>
+            <a href="{% url 'contract_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus" style="color:blue"><em>CONTRACT</em></span></a>
+            <a href="{% url 'arendator_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus" style="color:blue"><em>CLIENT</em></span></a>
             <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit" style="color:blue"></span></a>
         {% endif %}
 
         <h3><a href="/">REAL PROPERTY APPLICATION</a></h3>
-        <a href="/admin" class="btn btn-warning btn-lg">ADMIN PANEL</a>
+        {% if user.is_authenticated %}
+            <a href="/admin" class="btn btn-warning btn-lg">ADMIN PANEL</a>
+        {% endif %}
         <a href="/" class="btn btn-primary btn-lg">ALL POSTS</a>
-        <a href="/allclients" class="btn btn-primary btn-lg">ALL CLIENTS</a>
+        {% if user.is_authenticated %}
+            <a href="/allcontracts" class="btn btn-primary btn-lg">ALL CONTRACTS</a>
+            <a href="/allarendators" class="btn btn-primary btn-lg">ALL CLIENTS</a>
+        {% endif %}
         <a href="/free" class="btn btn-default btn-lg">Free objects</a>
         <a href="/leased" class="btn btn-default btn-lg">Leased objects</a>
 

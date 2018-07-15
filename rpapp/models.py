@@ -19,7 +19,6 @@ class Post(models.Model):
 
     picture = models.ImageField(upload_to="images/", blank=True, null=True)
 
-    contract_file = models.FileField(upload_to='contracts/', blank=True, null=True)
     # rent block ----------------------------------------------------
     FREE = 'free'
     LEASED = 'leased'
@@ -44,31 +43,30 @@ class Arendator(models.Model):
     name = models.CharField(max_length=200)
     photo = models.ImageField(upload_to="images/", blank=True, null=True)
 
-    def __unicode__(self):
-        return self.name
-
     def __str__(self):
         return self.name
 
 class Contract(models.Model):
-    rent_time = models.IntegerField(default=0)
+    rent_time_day = models.IntegerField(default=0)
 
-    price = models.IntegerField(default=0)
+    price_dollar = models.IntegerField(default=0)
 
-    payment_by_contract = models.IntegerField(default=0)
+    payment_by_contract_dollar = models.IntegerField(default=0)
 
     arendator = models.ForeignKey(Arendator, on_delete=models.CASCADE)
 
     rent_obj = models.ForeignKey(Post, on_delete=models.CASCADE)
 
-    FREE = 'fr'
-    LEASED = 'ld'
+    contract_file = models.FileField(upload_to='contracts/', blank=True, null=True)
+
+    FREE = 'free'
+    LEASED = 'leased'
     FREE_LEASE_CHOICES = (
         (None, 'unknown'),
         (FREE, 'free'),
         (LEASED, 'leased'),
     )
-    rental_condition = models.CharField(max_length=2,
+    rental_condition = models.CharField(max_length=6,
                                         choices=FREE_LEASE_CHOICES,
                                         default=FREE)
 

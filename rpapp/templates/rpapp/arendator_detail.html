@@ -1,0 +1,23 @@
+{% extends 'rpapp/base.html' %}
+
+{% block content %}
+    <div class="post">
+
+        <h1><a href="{% url 'arendator_detail' pk=arendator.pk %}">{{ arendator.name }}</a></h1>
+
+        {% if arendator.photo %}
+            <img src="{{MEDIA_URL}}{{arendator.photo}}">
+        {% endif %}
+        </br>
+        <span><strong>Телефон:</strong><p><strong>88005550000</strong></p></span>
+        </br>
+        <span><strong>Email:</strong><p>88005550000</p></span>
+        </br>
+
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'arendator_edit' pk=arendator.pk %}"><span class="glyphicon glyphicon-pencil" style="color:blue"></span></a>
+            <a class="btn btn-default" href="{% url 'arendator_remove' pk=arendator.pk %}"><span class="glyphicon glyphicon-remove" style="color:blue"></span></a>
+        {% endif %}
+
+    </div>
+{% endblock %}

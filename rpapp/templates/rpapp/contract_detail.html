@@ -9,14 +9,14 @@
         {% if contract.arendator %}
             <img src="{{MEDIA_URL}}{{contract.arendator.photo}}">
         {% endif %}
-
-        <h4>{{ contract.rental_condition }}</h4>
         </br>
-        <p>{{contract.payment_by_contract}}</p>
+        <span><strong>Состояние по контракту:</strong><p><strong>{{ contract.rental_condition }}</strong></p></span>
         </br>
-        <p>{{contract.price}}</p>
+        <span><strong>Оплачено по контракту:</strong><p>{{contract.payment_by_contract_dollar}}</p></span>
         </br>
-        <p>{{contract.rent_time}}</p>
+        <span><strong>Цена по контракту:</strong><p>{{contract.price_dollar}}</p></span>
+        </br>
+        <span><strong>Дней по контракту:</strong><p>{{contract.rent_time_day}}</p></span>
         </br>
 
         {% if user.is_authenticated %}
